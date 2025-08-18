@@ -1,0 +1,87 @@
+import java.util.Scanner;
+
+public class Program1 {
+
+    static Scanner sc = new Scanner(System.in);
+    static String[] users = { "admin", "user" };
+    static String[] passwords = { "msis", "mahe" };
+
+    public static boolean authenticate(String username, String pass) {
+        for (int i = 0; i < users.length; i++) {
+            if (username.equals(users[i]) && pass.equals(passwords[i])) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static void main(String[] args) {
+        System.out.println("Enter user name:");
+        String username = sc.next();
+        System.out.println("Enter password:");
+        String pass = sc.next();
+
+        if (authenticate(username, pass)) {
+            mainApp();
+        } else {
+            System.out.println("Invalid user");
+        }
+        sc.close();
+    }
+
+    static void mainApp() {
+        System.out.println("\nWelcome!");
+        System.out.println("1. Right angle triangle");
+        System.out.println("2. Right angle triangle - reversed");
+        System.out.println("3. Pyramid shape");
+        System.out.println("4. Exit");
+
+        int choice = sc.nextInt();
+
+        switch (choice) {
+            case 1:
+                printRightAngleTriangle(4);
+                break;
+            case 2:
+                printInvertedTriangle(4);
+                break;
+            case 3:
+                printPyramid(4);
+                break;
+            case 4:
+            default:
+                System.out.println("Exiting...");
+                return;
+        }
+    }
+
+    static void printRightAngleTriangle(int n) {
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= i; j++) {
+                System.out.print("* ");
+            }
+            System.out.println();
+        }
+    }
+
+    static void printInvertedTriangle(int n) {
+        for (int i = n; i >= 1; i--) {
+            for (int j = 1; j <= i; j++) {
+                System.out.print("* ");
+            }
+            System.out.println();
+        }
+    }
+
+    static void printPyramid(int n) {
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= n - i; j++) {
+                System.out.print(" ");
+            }
+            for (int k = 1; k <= 2 * i - 1; k++) {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+    }
+}
