@@ -1,0 +1,178 @@
+sis@msis:~$ ls
+anaconda3                            javascript-mini-projects
+Anaconda3-2025.06-0-Linux-x86_64.sh  LinuxCommnadsScriptsUtilitiesServices
+array                                linuxOS.txt
+bankingapp                           msis
+Cafe_Dynamic_Website                 Music
+cafe-static-website                  my_jupyter_env
+cdcapp                               Nginx_Apache2_Reverse_Proxy_Ecommerce-App
+cdcwebsite                           nishant
+cloud                                node-v18.18.0-linux-x64.tar.xz
+cys                                  Pictures
+data_analysis                        Public
+demo.txt                             python_programs
+Desktop                              snap
+Documents                            student.csv
+Downloads                            Tejus_ES0023
+editor                               Templates
+file.txt                             Videos
+greet.sh                             weather-app
+html5up-paradigm-shift.zip
+msis@msis:~$ cd cdcapp
+msis@msis:~/cdcapp$ sudo touch index.php
+[sudo] password for msis: 
+msis@msis:~/cdcapp$ sudo cat >> index.php
+bash: index.php: Permission denied
+msis@msis:~/cdcapp$ sudo chown -r msis:msis .
+chown: invalid option -- 'r'
+Try 'chown --help' for more information.
+msis@msis:~/cdcapp$ sudo chown -R msis:msis .
+msis@msis:~/cdcapp$ sudo cat >> index.php
+welcome to banking app
+^C
+msis@msis:~/cdcapp$ cat index.php
+welcome to banking app
+msis@msis:~/cdcapp$ sudo git status
+On branch main
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	index.php
+
+nothing added to commit but untracked files present (use "git add" to track)
+msis@msis:~/cdcapp$ sudo git add index.php
+msis@msis:~/cdcapp$ sudo git status
+On branch main
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	new file:   index.php
+
+msis@msis:~/cdcapp$ sudo nono index.php
+sudo: nono: command not found
+msis@msis:~/cdcapp$ sudo nano index.php
+msis@msis:~/cdcapp$ sudo git status
+On branch main
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	new file:   index.php
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   index.php
+
+msis@msis:~/cdcapp$ sudo git commit index.php -m "this is my index of my page" 
+[main 8451505] this is my index of my page
+ Committer: root <root@msis.cdc00.com>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly. Run the
+following command and follow the instructions in your editor to edit
+your configuration file:
+
+    git config --global --edit
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 1 file changed, 1 insertion(+)
+ create mode 100644 index.php
+msis@msis:~/cdcapp$ git^C
+msis@msis:~/cdcapp$     git config --global --edit
+msis@msis:~/cdcapp$     git commit --amend --reset-author
+fatal: could not open '.git/COMMIT_EDITMSG': Permission denied
+msis@msis:~/cdcapp$ sudo git commit index.php -m "this is my index of my page" 
+On branch main
+nothing to commit, working tree clean
+msis@msis:~/cdcapp$ sudo git log
+commit 8451505b1e2e22d85685d93e453224ce477c81b1 (HEAD -> main)
+Author: root <root@msis.cdc00.com>
+Date:   Wed Aug 20 09:42:19 2025 +0530
+
+    this is my index of my page
+
+commit f7842cabb5f2095d5f9f80b06b040085d9ceebf8 (origin/main, master)
+Author: sudheer-go <sudheerkumar04g@gmail.com>
+Date:   Mon Aug 18 09:49:40 2025 +0530
+
+    Update README.md
+
+commit 2b903e8689cf96960adcb090038229ece5ceb13d
+Author: sudheer-go <sudheerkumar04g@gmail.com>
+Date:   Mon Aug 18 09:46:51 2025 +0530
+
+    Initial commit
+msis@msis:~/cdcapp$ sudo git log --oneline
+8451505 (HEAD -> main) this is my index of my page
+f7842ca (origin/main, master) Update README.md
+2b903e8 Initial commit
+msis@msis:~/cdcapp$ sudo nano index.php
+msis@msis:~/cdcapp$ touch contact.php about.php
+msis@msis:~/cdcapp$ sudo chown -R msis:msis
+chown: missing operand after ‘msis:msis’
+Try 'chown --help' for more information.
+msis@msis:~/cdcapp$ sudo chown -R msis:msis.
+chown: missing operand after ‘msis:msis.’
+Try 'chown --help' for more information.
+msis@msis:~/cdcapp$ sudo chown -R msis:msis .
+msis@msis:~/cdcapp$ sudo cat >> contact.php
+contact details 123456
+^C
+msis@msis:~/cdcapp$ sudo cat >> about.php 
+theis was create by me 
+^C      
+msis@msis:~/cdcapp$ sudo git add -A 
+msis@msis:~/cdcapp$ sudo git status
+On branch main
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	new file:   about.php
+	new file:   contact.php
+
+msis@msis:~/cdcapp$ sudo git commit -a -m "added about and contact pages
+> sudo git commit -a -m "added about and contact pages"
+> ^C
+msis@msis:~/cdcapp$ sudo git commit -a -m "added about and contact pages
+sudo git commit -a -m "added about and contact pages"
+> ^C
+msis@msis:~/cdcapp$ sudo git commit -a -m "added about and contact pages"
+[main 0d931da] added about and contact pages
+ Committer: root <root@msis.cdc00.com>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly. Run the
+following command and follow the instructions in your editor to edit
+your configuration file:
+
+    git config --global --edit
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 2 files changed, 2 insertions(+)
+ create mode 100644 about.php
+ create mode 100644 contact.php
+msis@msis:~/cdcapp$ sudo git push origin main
+Username for 'https://github.com': sudheer-go
+Password for 'https://sudheer-go@github.com': 
+remote: invalid credentials
+fatal: Authentication failed for 'https://github.com/sudheer-go/cdcbankingapp.git/'
+msis@msis:~/cdcapp$ sudo git push origin main
+Username for 'https://github.com': sudheer-go      
+Password for 'https://sudheer-go@github.com': 
+Enumerating objects: 8, done.
+Counting objects: 100% (8/8), done.
+Delta compression using up to 28 threads
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (7/7), 628 bytes | 628.00 KiB/s, done.
+Total 7 (delta 1), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (1/1), done.
+To https://github.com/sudheer-go/cdcbankingapp.git
+   f7842ca..0d931da  main -> main
+msis@msis:~/cdcapp$ git config --global --edit
+msis@msis:~/cdcapp$ sudo git add -A 
+[sudo] password for msis: 
+sudo: a password is required
+msis@msis:~/cdcapp$ 
+
