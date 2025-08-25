@@ -1,1 +1,4 @@
 https://chatgpt.com/share/68ac0057-b624-800b-8190-24dd30cb65cf
+
+mpiuser@msis:~$ mpirun -np 3 -hostfile hosts.txt ./helloworld
+
