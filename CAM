@@ -2,3 +2,53 @@ https://chatgpt.com/share/68ac0057-b624-800b-8190-24dd30cb65cf
 
 mpiuser@msis:~$ mpirun -np 3 -hostfile hosts.txt ./helloworld
 
+MPI Cluster Setup Guide - 3 Nodes
+Step 1: Configure /etc/hosts on all nodes
+sudo nano /etc/hosts
+Add:
+172.18.181.63 msis
+172.18.181.68 client1
+172.18.181.54 client2
+Test:
+ping msis
+ping client1
+ping client2
+---
+Step 2: Ensure SSH server is running on all nodes
+sudo systemctl enable --now ssh
+sudo systemctl status ssh
+---
+Step 3: Set up passwordless SSH (on msis)
+ssh-keygen -t rsa -b 4096 -f ~/.ssh/id_rsa -N ""
+ssh-copy-id mpiuser@msis
+ssh-copy-id mpiuser@client1
+ssh-copy-id mpiuser@client2
+Test:
+ssh msisssh client1
+ssh client2
+---
+Step 4: Add IPs to known_hosts
+ssh mpiuser@172.18.181.63
+ssh mpiuser@172.18.181.68
+ssh mpiuser@172.18.181.54
+Type 'yes' when prompted
+---
+Step 5: Create a hostfile (on msis)
+nano hosts.txt
+Add:
+172.18.181.63
+172.18.181.68
+172.18.181.54
+---
+Step 6: Make MPI program executable
+chmod +x ./helloworld
+---
+Step 7: Run MPI program cleanly (suppress X11 warnings)
+unset DISPLAY
+mpirun -np 3 -hostfile hosts.txt ./helloworld
+Expected Output:Hello from processor msis.cdc00.com, rank 0 out of 1 processors
+Hello from processor msis-bda002.com, rank 0 out of 1 processors
+Hello from processor msis-HP-Pro-Tower-4000-G9-PCI-Desktop-PC, rank 0 out of 1 processors
+---
+Optional: Disable firewall temporarily if MPI fails
+sudo ufw disable
